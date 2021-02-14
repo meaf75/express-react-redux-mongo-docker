@@ -1,0 +1,16 @@
+.content {
+    border-style: solid;
+    border-width: 2px;
+}
+
+.header-content {
+    border-top-width: 2px;
+    border-top-style: solid;
+    padding: 10px;    
+}
+
+.header-label {
+    background-color: #cecece;
+    padding: 2px;
+    margin: 0;
+}

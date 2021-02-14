@@ -1,0 +1,39 @@
+FROM node:12.13-alpine 
+
+# Create Directory for the Container
+WORKDIR /usr/src/app
+
+COPY package.json .
+COPY yarn.lock .
+
+# Install all Packages
+RUN yarn install
+
+# Copy all other source code to work directory
+ADD . /usr/src/app
+
+# Add env variables
+ARG NODE_ENV=production
+ARG PORT
+ARG DB_HOST
+ARG DB_PORT
+ARG DB_NAME
+
+ENV NODE_ENV=${NODE_ENV}
+ENV PORT=${PORT}
+ENV DB_HOST=${DB_HOST}
+ENV DB_PORT=${DB_PORT}
+ENV DB_NAME=${DB_NAME}
+
+# TypeScript
+RUN yarn tsc
+
+# Start
+CMD [ "yarn", "start" ]
+
+# Command to build docker
+# docker build -t fullstack-backend --build-arg DB_HOST=$DB_HOST --build-arg DB_PORT=$DB_PORT --build-arg DB_NAME=$DB_NAME .
+
+# Example
+# docker build -t fullstack-backend --build-arg DB_HOST=localhost --build-arg DB_PORT=27017 --build-arg DB_NAME=backend-db .
+# docker run --name="fullstack-backend" -p 0.0.0.0:4001:4000 fullstack-backend

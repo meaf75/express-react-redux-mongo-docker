@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "fbc7f407-a94b-44a2-82be-11decfca0482",
+		"name": "Full-stack-React-Redux-Express-mongodb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/user",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"user"
+					],
+					"query": [
+						{
+							"key": "user_name",
+							"value": "4",
+							"disabled": true
+						},
+						{
+							"key": "mail",
+							"value": "6",
+							"disabled": true
+						},
+						{
+							"key": "user_id",
+							"value": "123456",
+							"disabled": true
+						},
+						{
+							"key": "birthDay",
+							"value": "1613163405",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "khb",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/api/user?user_id=123456-4",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"user"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "123456-4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add user Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "user_name",
+							"value": "miguel4",
+							"type": "text"
+						},
+						{
+							"key": "mail",
+							"value": "miguel6@correo.com",
+							"type": "text"
+						},
+						{
+							"key": "user_id",
+							"value": "123456-6",
+							"type": "text"
+						},
+						{
+							"key": "birthDay",
+							"value": "1613163405",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:4000/api/user",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

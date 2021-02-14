@@ -1,0 +1,26 @@
+# pull official base image
+FROM node:12.13-alpine 
+
+# Create app directory
+WORKDIR /app
+
+# Add env variables
+ARG REACT_APP_API_ENDPOINT
+ENV REACT_APP_API_ENDPOINT=${REACT_APP_API_ENDPOINT}
+
+# Installing dependencies
+COPY package.json /app
+RUN yarn install
+
+# Copying source files
+COPY . /app
+
+# start app
+CMD ["yarn", "run", "start"]
+
+# Command to build docker
+# docker build -t fullstack-client-block --build-arg REACT_APP_API_ENDPOINT=$REACT_APP_API_ENDPOINT .
+
+# Example
+# docker build -t fullstack-client-block --build-arg REACT_APP_API_ENDPOINT=http://localhost:4001/api .
+# docker run --name="fullstack-client-block" -p 0.0.0.0:3001:3000 fullstack-client-block
